@@ -13,6 +13,8 @@ import Button from '@mui/material/Button'
 import Alert from '@mui/material/Alert'
 import { ThreeCircles } from 'react-loader-spinner'
 import { useLoginForm } from './useLoginForm'
+import Link from 'next/link'
+import Typography from '@mui/material/Typography'
 
 const LoginForm = () => {
     const { showPassword, isLoading, handleClickShowPassword, handleMouseDownPassword, handleMouseUpPassword, formikObj } = useLoginForm();
@@ -60,7 +62,16 @@ const LoginForm = () => {
                     wrapperClass=""
                 /> : "Login"}
             </Button>
+            <Typography sx={{
+                textAlign: "center",
+            }} component={'span'} >Don't have an account?
+                <Typography component={'span'} sx={{ color: '#1976D2', marginLeft: "5px", cursor: "pointer", textDecoration: "underline" }}>
 
+                    <Link href={`/signup`}>
+                        Sign Up
+                    </Link>
+                </Typography>
+            </Typography>
         </Box>
     </>
     )
