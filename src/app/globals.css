@@ -1,6 +1,3 @@
-
-
-
 html,
 body {
   max-width: 100vw;
@@ -24,4 +21,34 @@ body {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+:root {
+  --fb-blue: #1877f2;
+  --fb-bg: #f0f2f5;
+  --card-bg: #ffffff;
+  --foreground: #050505;
+  --muted: #65676b;
+  --container-max: 980px;
+}
+
+body {
+  background: var(--fb-bg);
+}
+
+.app-root {
+  padding-top: 64px; /* space for fixed topbar */
+}
+
+.fb-left,
+.fb-right {
+  position: sticky;
+  top: 80px;
+}
+
+.fb-post-card {
+  background: var(--card-bg);
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  margin-bottom: 16px;
 }

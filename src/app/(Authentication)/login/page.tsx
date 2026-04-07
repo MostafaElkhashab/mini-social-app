@@ -19,5 +19,4 @@ const LoginPage = () => {
         </Box >
     </Box>
 };
-
 export default LoginPage;

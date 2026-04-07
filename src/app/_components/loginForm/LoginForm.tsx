@@ -8,7 +8,6 @@ import OutlinedInput from '@mui/material/OutlinedInput'
 import TextField from '@mui/material/TextField'
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import React from 'react'
 import Button from '@mui/material/Button'
 import Alert from '@mui/material/Alert'
 import { ThreeCircles } from 'react-loader-spinner'
@@ -22,7 +21,13 @@ const LoginForm = () => {
 
         <Box component={"form"} sx={{ paddingX: "20px", display: "flex", flexDirection: "column", gap: "30px" }} onSubmit={formikObj.handleSubmit}>
             <Box>
-                <TextField sx={{ marginBottom: "5px" }} id="email" fullWidth label="Email" variant="outlined" onChange={formikObj.handleChange} onBlur={formikObj.handleBlur} value={formikObj.values.email} />
+                <TextField
+                    sx={{ marginBottom: "5px" }}
+                    id="email" fullWidth label="Email" variant="outlined"
+                    onChange={formikObj.handleChange}
+                    onBlur={formikObj.handleBlur}
+                    value={formikObj.values.email}
+                />
                 {formikObj.errors.email && formikObj.touched.email ? <Alert severity="error">{formikObj.errors.email}</Alert> : ""}
             </Box>
             <FormControl fullWidth variant="outlined" >

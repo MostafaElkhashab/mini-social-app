@@ -5,7 +5,7 @@ import { myStore } from "@/lib/redux/reduxStore";
 import { Provider } from "react-redux";
 import theme from './../../theme';
 import ToastProvider from './../toaster/ToastProvider';
-const Providers = ({ children, }: {
+const Providers = ({ children }: {
     children: React.ReactNode;
 }) => {
     return (

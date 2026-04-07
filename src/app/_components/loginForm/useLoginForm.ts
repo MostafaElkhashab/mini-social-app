@@ -1,4 +1,4 @@
-import { use, useState } from "react";
+import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { toast } from "react-toastify";
@@ -7,6 +7,7 @@ import { LoginResponse, LoginUser } from "@/app/(Authentication)/Auth.types";
 import { useRouter } from "next/navigation";
 import { setUserToken } from "@/lib/redux/authSlice";
 import { useDispatch } from "react-redux";
+import cookies from "js-cookie";
 export const useLoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
@@ -40,11 +41,11 @@ export const useLoginForm = () => {
         values,
       );
       toast.success("Login Successfully");
-      localStorage.setItem("token", response.data.token);
+      cookies.set("token", response.data.token);
       dispatch(setUserToken(response.data.token));
       setTimeout(() => {
         router.push("/");
-      }, 2000);
+      }, 1000);
     } catch (error) {
       toast.error("Login failed. Please check your credentials.");
     } finally {

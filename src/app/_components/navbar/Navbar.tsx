@@ -16,6 +16,7 @@ import AccountCircle from '@mui/icons-material/AccountCircle';
 import MailIcon from '@mui/icons-material/Mail';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import MoreIcon from '@mui/icons-material/MoreVert';
+import Link from 'next/link';
 
 const Search = styled('div')(({ theme }) => ({
     position: 'relative',
@@ -99,7 +100,14 @@ const Navbar = () => {
             open={isMenuOpen}
             onClose={handleMenuClose}
         >
-            <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+            <MenuItem 
+                onClick={() => {
+                    handleMenuClose();
+                    window.location.href = '/profile';
+                }}
+            >
+                Profile
+            </MenuItem>
             <MenuItem onClick={handleMenuClose}>My account</MenuItem>
         </Menu>
     );
@@ -158,8 +166,8 @@ const Navbar = () => {
 
     return (
         <Box sx={{ flexGrow: 1 }}>
-            <AppBar position="static">
-                <Toolbar>
+            <AppBar position="fixed" elevation={0} sx={{ backgroundColor: 'var(--fb-blue)' }}>
+                <Toolbar sx={{ maxWidth: 'var(--container-max)', width: '100%', margin: '0 auto' }}>
                     <IconButton
                         size="large"
                         edge="start"
@@ -173,9 +181,11 @@ const Navbar = () => {
                         variant="h6"
                         noWrap
                         component="div"
-                        sx={{ display: { xs: 'none', sm: 'block' } }}
+                        sx={{ display: { xs: 'none', sm: 'block' }, fontWeight: 700, fontSize: '1.5rem', fontFamily: 'Arial, Helvetica, sans-serif', color: '#fff' }}
                     >
-                        MUI
+                        <Link href="/">
+                            facebook
+                        </Link>
                     </Typography>
                     <Search>
                         <SearchIconWrapper>
